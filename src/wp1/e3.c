@@ -46,13 +46,16 @@ int main(void) {
         
         // take in the number from keyboard and store it in num variable
         scanf("%s", guess);
-        guessed_num = atoi(guess);
+        guessed_num = atoi(guess); //the number that is scanned from the console is parsed to int for type-checking purposes
 
         if (guessed_num == 0 || strcmp(guess, "\n") == 0) {
             printf("\nPlease enter a valid guessable number.\n");
+            //still adds as a valid guess when an incorrect format is provided
             guess_count++;
         } else if (guessed_num == *num) {
+            //upon a successful guess of the number
             printf("\nYou have guessed %d times, and your guess is correct. \n\nWould you like to play again? \nType Y to continue, or anything else to quit. -- ", guess_count);
+            //scans for another response, for if the user wants to continue with another round, or quit (anything except capital Y leads to quit)
             scanf("%s", &response);
             if (response == 'Y') {
                 guess_count = 1;
@@ -63,15 +66,19 @@ int main(void) {
             }
         } else if (guess_count == MAX_NUMBER) {
             printf("\nYou have guessed too many times. The number was %d. \n", *num); 
+            //here the number of guesses are reset, and it breaks out of the while loop, terminating the program.
             guess_count = 0;
             break;
         } else if (guessed_num > 100 | guessed_num < 1) {
+            //informs user to enter between 1-100 as per the requirements of the game
             printf("\nPlease enter a valid guessable number, kindly between 1 and 100.\n");
             guess_count++;
         } else if (guessed_num > *num) {
+            //the case when the guess is higher than what the number is
             printf("\nYour guess is higher than the actual number. Keep guessing!\n");
             guess_count++;
         } else if (guessed_num < *num) {
+            //the case when the guess is lower than what the number is
             printf("\nYour guess is lower than what the number is. Keep guessing....\n");
             guess_count++;
         } else {
