@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
     //if the value provided is less than 0, then we send an error message
     if(atoi(argv[1]) < 0) { 
 
-        printf("Error: Please provide a positive integer/digits"); 
+        printf("Error: Please provide a positive integer/digits\n"); 
 
     //we check if the user has enter argument -h seeking help
     //we use strcmp to compare if the argument value is exactly equal to -h so that we can provide the user with the help instructions on how to use the program
@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
             } */
 
             //here we iterate through the new binary number in reverse order 00110000===00001100
-            printf("\nBinary of Given Number is=");    
+            printf("\nBinary of Given Number is: ");    
             if (provided_number >= 256) {
                  for(i = 15; i >= 0; i--)    {    
                     printf("%d", new_binary_array[i]);
@@ -104,6 +104,7 @@ int main(int argc, char *argv[])
                     printf("%d", new_binary_array[i]); 
                 }
             }
+            printf("\n");
             return 0; // return success.
     }
 }
