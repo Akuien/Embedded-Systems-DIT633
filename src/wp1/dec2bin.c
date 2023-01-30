@@ -38,15 +38,16 @@ int main(int argc, char *argv[])
         // if non of the above condition are encountered, we therefore do the conversion
 
             //we declare a new integer array to store the binary digits during the division process
-            int i, new_binary_array[8];
+            int i;
+            int new_binary_array[16] = {0};
 
             //converting the string representation of the argument to a long integer so that we can use it during the division
             char* end;
             long provided_number = strtol(argv[1], &end, 10);
 
-           //long int n = (long)(int)argv[1];
-           // clear the console
-            //system ("cls");  
+            // long int n = (long)(int)argv[1];
+            // clear the console
+            // system ("cls");  
  
             /*
             //in the below for-loop we:
@@ -54,9 +55,12 @@ int main(int argc, char *argv[])
             Divide the number by 2 through / (division operator)
             Repeat the step 2 until number is less than 0
             */
-            for(i=0 ;provided_number>0 ; i++)    {    
-                new_binary_array[i] = provided_number % 2;    
-                provided_number  = provided_number/2;    
+            
+            int temp = provided_number;
+
+            for (i = 0; temp > 0; i++)    {    
+                new_binary_array[i] = temp % 2;    
+                temp = temp/2;    
             } 
 
 /*             int array_len = sizeof(new_binary_array)/sizeof(new_binary_array[0]);
@@ -69,8 +73,9 @@ int main(int argc, char *argv[])
 
             //here we iterate through the new binary number in reverse order 00110000===00001100
             printf("\nBinary of Given Number is=");    
-            for(i = i-1; i >= 0; i--)    {    
-                printf("%d",new_binary_array[i]);
+            if (provided_number >= 256) {
+                 for(i = 15; i >= 0; i--)    {    
+                    printf("%d", new_binary_array[i]);
 
 
 /*                 //int len = (new_binary_array[1]);
@@ -93,8 +98,12 @@ int main(int argc, char *argv[])
                         close(fd[1]);
                     }
                 }  */  
-            } 
-                     
+                } 
+            } else {
+                for(i = 7; i >= 0; i--) {    
+                    printf("%d", new_binary_array[i]); 
+                }
+            }
+            return 0; // return success.
     }
-    return 0; // return success.
 }
