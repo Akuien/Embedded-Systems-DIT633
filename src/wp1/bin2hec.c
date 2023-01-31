@@ -10,38 +10,34 @@
 // main function that takes in an argument
 int main(int argc, char *argv[]) 
 {
-    //
-    int m = strlen(argv[1]);
-    int keyword[m];
-
-    for (int i=0; i<strlen(argv[1]); i++) {
-        if ((argv[1][i] - '0') > 1) {
-            printf("There was an error.\n");
-            return 2;
-        }
-        /*detectzero = strspn(argv[1], "0");
-        detectone = strspn(argv[1], "1");
-        if (detectone == 0 || detectzero == 0) {
-            printf("There was an error.\n");
-        } else {
-            printf("%c", (argv[1])[i]);
-        }*/
-
-        /*if (atoi(&(argv[1])[i]) > 1) {
-            printf("There was an error.\n");
-        }*/
-    }
-
-    if(atoi(argv[1]) == 0) { 
-
-        printf("Error: The value provided is invalid"); 
-
+    // 
+    if(atoi(argv[1]) < 0) { 
+        printf("Error: The value provided is invalid.\n"); 
+        return 2;
     } else if(strcmp(argv[1], "-h") == 0) {
         // this line compares the argument that is provided to the "-h" value, 
         // if it succeds(comparison == 0), then it would execute the code inside the block.
         printf("To run the code, first compile...");
     
     } else { 
+        for (int i=0; i<strlen(argv[1]); i++) {
+            if ((argv[1][i] - '0') > 1) {
+                printf("There was an error.\n");
+                return 2;
+            }
+            /*detectzero = strspn(argv[1], "0");
+            detectone = strspn(argv[1], "1");
+            if (detectone == 0 || detectzero == 0) {
+                printf("There was an error.\n");
+            } else {
+                printf("%c", (argv[1])[i]);
+            }*/
+
+            /*if (atoi(&(argv[1])[i]) > 1) {
+                printf("There was an error.\n");
+            }*/
+        }
+
         long int hexadecimalval[2] = {0};
         long int i = 1, remainder;
 
@@ -66,8 +62,6 @@ int main(int argc, char *argv[])
             */
             binary_number = binary_number / 10;
         }
-        printf("Equivalent hexadecimal value: "); 
-        
         if (hexadecimalval[1] < 17) {
             for (int i=0; i<=1; i++) {
                 printf("%lX", hexadecimalval[i]);

@@ -4,7 +4,7 @@
 
 #include <sys/types.h>
 #include <unistd.h>
-
+#include <ctype.h>
 
 /*
 Step 1: Divide the number by 2 through % (modulus operator) and store the remainder in array
@@ -19,6 +19,13 @@ Step 3: Repeat the step 2 until number is greater than 0
 //argv == argument value
 int main(int argc, char *argv[]) 
 {
+    for (int i=0; i<strlen(argv[1]); i++) {
+        if (isdigit(argv[1][i]) == 0) {
+            printf("Please enter a \"number\".\n");
+            return 2;
+        }
+    }
+    
     //we check if the provided number in the argument is less than zero to avoid negative values
     //if the value provided is less than 0, then we send an error message
     if(atoi(argv[1]) < 0) { 
@@ -72,7 +79,6 @@ int main(int argc, char *argv[])
             } */
 
             //here we iterate through the new binary number in reverse order 00110000===00001100
-            printf("\nBinary of Given Number is: ");    
             if (provided_number >= 256) {
                  for(i = 15; i >= 0; i--)    {    
                     printf("%d", new_binary_array[i]);
