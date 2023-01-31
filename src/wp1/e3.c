@@ -29,7 +29,8 @@ int main(void) {
     int* num = (int*) malloc(sizeof(int));
     *num = rand() % 100 + 1;
 
-    //as the do-while loop is run at least once, the guess_count (number of guesses user has made so far), is initialised as 1.                                 
+    //as the do-while loop is run at least once, the guess_count (number of guesses user has made so far), is initialised as 1.
+    //this is because the user makes his/her first guess right away when the program is executed.
     int guess_count = 1;
 
     //variable for what the user guesses
@@ -59,6 +60,7 @@ int main(void) {
             scanf("%s", &response);
             if (response == 'Y') {
                 guess_count = 1;
+                //regenerates a random number again, at the start of a new round after 'Y' is passed.
                 *num = rand() % 100 + 1;
             } else {
                 printf("\nThanks for playing!\n");

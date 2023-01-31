@@ -35,8 +35,7 @@ int main(int argc, char *argv[])
         printf("To run the code, first compile the code using gcc dec2bin.c -o dec2bin, \nand then run it using \n\n./dec2bin <desired decimal to convert to binary> \n\nPlease enter a valid decimal number as an argument.\n");
 
     } else { 
-        // if non of the above condition are encountered, we therefore do the conversion
-        
+        // if non of the above condition are encountered, we therefore do the conversion 
         //during the case when conversion cannot be done, '2' is returned by main() and the process is aborted. This is important to be checked at the start.
         for (int i=0; i<strlen(argv[1]); i++) {
             if (isdigit(argv[1][i]) == 0) {
@@ -52,16 +51,12 @@ int main(int argc, char *argv[])
             //converting the string representation of the argument to a long integer so that we can use it during the division
             char* end;
             long provided_number = strtol(argv[1], &end, 10);
-
-            // long int n = (long)(int)argv[1];
-            // clear the console
-            // system ("cls");  
  
             /*
-            //in the below for-loop we:
-            Divide the provided_number by 2 through % (modulus operator) and store the remainder in array
-            Divide the number by 2 through / (division operator)
-            Repeat the step 2 until number is less than 0
+                //in the below for-loop we:
+                Divide the provided_number by 2 through % (modulus operator) and store the remainder in array
+                Divide the number by 2 through / (division operator)
+                Repeat the step 2 until number is less than 0
             */
             
             int temp = provided_number;
@@ -71,21 +66,13 @@ int main(int argc, char *argv[])
                 temp = temp/2;    
             } 
 
-/*             int array_len = sizeof(new_binary_array)/sizeof(new_binary_array[0]);
-
-            for(i=0; i< array_len; i++ ) {
-                if(array_len < 8) {
-                
-                }
-            } */
-
             //here we iterate through the new binary number in reverse order 00110000===00001100
-            if (provided_number >= 256) {
-                 for(i = 15; i >= 0; i--)    {    
-                    printf("%d", new_binary_array[i]);
+            if (provided_number >= 256) { //if the provided number is more than 255 (11111111), then print as a 16-bit binary                 
+                for(i = 15; i >= 0; i--)    {    
+                    printf("%d", new_binary_array[i]); //so print all 16 indexes (15, 14, 13 ... 0, as the binary number is reversed)
 
-
-/*                 //int len = (new_binary_array[1]);
+                /*          
+                int len = (new_binary_array[1]);
                 int len = atoi(new_binary_array[1]);
                 
 
@@ -104,10 +91,11 @@ int main(int argc, char *argv[])
                         write(fd[1], &x, sizeof(int));
                         close(fd[1]);
                     }
-                }  */  
+                }  
+                */  
                 } 
-            } else {
-                for(i = 7; i >= 0; i--) {    
+            } else {       //if the provided number can be 8-bit equivalent in binary, or less than 256 (00000000 - 11111111)
+                for(i = 7; i >= 0; i--) {     //prints only 8 indexes out of the total (7, 6, 5 ... 0)
                     printf("%d", new_binary_array[i]); 
                 }
             }

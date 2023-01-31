@@ -7,7 +7,7 @@
 
 int main(void) { // main function that returns an integer and takes in void as an argument
 
-    int num; // declaring an integer "num"
+    int num; // declaring an integer "num" where the user's input will be allocated
 
     do { // do whats in this block first before reaching the while condition.
         printf("\nEnter a number: "); // print out this statement first.
@@ -29,10 +29,10 @@ int main(void) { // main function that returns an integer and takes in void as a
             case 5: // if number value entered equals 5
                 printf("You chose number five\n"); // then print out this statement
                 break; // break the condition and start the loop again
-            default: // if no case matches the input
+            default: // if received input is not between 1-5, and/or anything else apart from the previous switch cases
                 break; // then break the loop
         }
-    } while (num <= 5 && num >= 1); // the loop will kee running while the input from keyboard is in 1-5 range
+    } while (num <= 5 && num >= 1); // the loop will keep running while the input from keyboard is in 1-5 range
 
     return 0; // return success
 }
