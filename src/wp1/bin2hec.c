@@ -5,8 +5,6 @@
 
 //convert binary to hexadecimal number
 
-
-
 // main function that takes in an argument
 int main(int argc, char *argv[]) 
 {
@@ -25,17 +23,7 @@ int main(int argc, char *argv[])
                 printf("There was an error.\n");
                 return 2;
             }
-            /*detectzero = strspn(argv[1], "0");
-            detectone = strspn(argv[1], "1");
-            if (detectone == 0 || detectzero == 0) {
-                printf("There was an error.\n");
-            } else {
-                printf("%c", (argv[1])[i]);
-            }*/
 
-            /*if (atoi(&(argv[1])[i]) > 1) {
-                printf("There was an error.\n");
-            }*/
         }
 
         long int hexadecimalval[2] = {0};
@@ -62,10 +50,14 @@ int main(int argc, char *argv[])
             */
             binary_number = binary_number / 10;
         }
+        //We check if the hexadecimal number is less than 17 in the ASCII table
+        //if its below index 16, the hexadecimal number is of one digit, therefore we loop through the 2 digits and print both imstead of only 1 eg 0F instead of F
         if (hexadecimalval[1] < 17) {
             for (int i=0; i<=1; i++) {
                 printf("%lX", hexadecimalval[i]);
             }
+
+        //else if it greater than 16, it means that the hexadecimal number is made up of 2 chararcters hence we loop through both    
         } else {
             printf("%lX", hexadecimalval[1]);
         }
