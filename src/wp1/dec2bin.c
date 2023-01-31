@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     if(atoi(argv[1]) < 0) { 
 
         printf("Error: Please provide a positive integer/digits\n"); 
-
+        return 2;
     //we check if the user has enter argument -h seeking help
     //we use strcmp to compare if the argument value is exactly equal to -h so that we can provide the user with the help instructions on how to use the program
     } else if(strcmp(argv[1], "-h") == 0) {
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
         // if it succeds(comparison == 0), then it would execute the code inside the block.
 
         // we print the instructions for the user to see, what to do
-        printf("To run the code, first compile...");
+        printf("To run the code, first compile the code using gcc dec2bin.c -o dec2bin, \nand then run it using \n\n./dec2bin <desired decimal to convert to binary> \n\nPlease enter a valid decimal number as an argument.\n");
 
     } else { 
         // if non of the above condition are encountered, we therefore do the conversion

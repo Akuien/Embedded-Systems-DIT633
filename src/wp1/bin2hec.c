@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     } else if(strcmp(argv[1], "-h") == 0) {
         // this line compares the argument that is provided to the "-h" value, 
         // if it succeds(comparison == 0), then it would execute the code inside the block.
-        printf("To run the code, first compile...");
+        printf("To run the code, first compile using \n\n gcc bin2hec.c -o bin2hec\n\nand run using \n\n ./bin2hec <binary number to convert to hexad.>\n\n Make sure to use a valid binary number as an argument. This can also be run in conjunction with executable \"./dec2bin\". This is done with running that file (with a decimal arg), and then appending it with a '| xargs' (pipeline), and then calling \"./bin2hec\" without any arguments. Like this -- \n\n ./dec2bin 255 | xargs ./bin2hec    // this will return FF\n\nThis will pass the output from the first executable directly as an argument to the next executable, and conduct dec-hex conversions in one go.\n");
     
     } else { 
         for (int i=0; i<strlen(argv[1]); i++) {
