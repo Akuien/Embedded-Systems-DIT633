@@ -17,15 +17,18 @@ int main(int argc, char *argv[])
         // if it succeds(comparison == 0), then it would execute the code inside the block.
         printf("To run the code, first compile using \n\n gcc bin2hec.c -o bin2hec\n\nand run using \n\n ./bin2hec <binary number to convert to hexad.>\n\n Make sure to use a valid binary number as an argument. This can also be run in conjunction with executable \"./dec2bin\". This is done with running that file (with a decimal arg), and then appending it with a '| xargs' (pipeline), and then calling \"./bin2hec\" without any arguments. Like this -- \n\n ./dec2bin 255 | xargs ./bin2hec    // this will return FF\n\nThis will pass the output from the first executable directly as an argument to the next executable, and conduct dec-hex conversions in one go.\n");
     
-    } else { 
+    } else {
+        //We loop through the argument array string to check if there is a value that is greater than 1 since we only want an input argument array of 0's and 1's 
         for (int i=0; i<strlen(argv[1]); i++) {
             if ((argv[1][i] - '0') > 1) {
+                //If we find a value that is not a 1 or 0 in the string for example 00111200; the loop will find the 2 then we throw an error
                 printf("There was an error.\n");
                 return 2;
             }
 
         }
 
+        //We declare an array hexadecimalval of size 2
         long int hexadecimalval[2] = {0};
         long int i = 1, remainder;
 
