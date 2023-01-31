@@ -18,14 +18,7 @@ Step 3: Repeat the step 2 until number is greater than 0
 //argc == argument count
 //argv == argument value
 int main(int argc, char *argv[]) 
-{
-    for (int i=0; i<strlen(argv[1]); i++) {
-        if (isdigit(argv[1][i]) == 0) {
-            printf("Please enter a \"number\".\n");
-            return 2;
-        }
-    }
-    
+{   
     //we check if the provided number in the argument is less than zero to avoid negative values
     //if the value provided is less than 0, then we send an error message
     if(atoi(argv[1]) < 0) { 
@@ -43,6 +36,14 @@ int main(int argc, char *argv[])
 
     } else { 
         // if non of the above condition are encountered, we therefore do the conversion
+        
+        //during the case when conversion cannot be done, '2' is returned by main() and the process is aborted. This is important to be checked at the start.
+        for (int i=0; i<strlen(argv[1]); i++) {
+            if (isdigit(argv[1][i]) == 0) {
+                printf("Please enter a \"number\".\n");
+                return 2;
+            }
+        }
 
             //we declare a new integer array to store the binary digits during the division process
             int i;
