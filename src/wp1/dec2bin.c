@@ -1,7 +1,11 @@
+// (C) Anton Golubenko, Aditya Khadkikar, Akuien Deng - Group: 27 
+// Work package 1 
+// Exercise 4 
+// Submission code: VV96BO8 (provided by your TA-s) 
+
 #include<stdio.h>    
 #include<stdlib.h>  
 #include <string.h>
-
 #include <sys/types.h>
 #include <unistd.h>
 #include <ctype.h>
@@ -70,29 +74,6 @@ int main(int argc, char *argv[])
             if (provided_number >= 256) { //if the provided number is more than 255 (11111111), then print as a 16-bit binary                 
                 for(i = 15; i >= 0; i--)    {    
                     printf("%d", new_binary_array[i]); //so print all 16 indexes (15, 14, 13 ... 0, as the binary number is reversed)
-
-                /*          
-                int len = (new_binary_array[1]);
-                int len = atoi(new_binary_array[1]);
-                
-
-                if (len > 8) {
-                    int fd[2];
-
-                    if(pipe(fd) == -1) {
-                        printf("An error occurred with opening the pipe\n");
-                        return 1;
-                    }
-
-                    int id = fork();
-                    if(id == 0) {
-                        close(fd[0]);
-                        int x = new_binary_array[1];
-                        write(fd[1], &x, sizeof(int));
-                        close(fd[1]);
-                    }
-                }  
-                */  
                 } 
             } else {       //if the provided number can be 8-bit equivalent in binary, or less than 256 (00000000 - 11111111)
                 for(i = 7; i >= 0; i--) {     //prints only 8 indexes out of the total (7, 6, 5 ... 0)
