@@ -1,7 +1,8 @@
 // (C) Anton Golubenko, Aditya Khadkikar, Akuien Deng - Group: 27 
 // Work package 1 
 // Exercise 2 
-// Submission code: XXXXXXX (provided by your TA-s)
+// Submission code: VV96BO8 (provided by your TA-s)
+
 #include <stdio.h> // used for standard output and input 
 #include <stdlib.h> // used to convert char to number
 #include <string.h> // used to call function strlen()

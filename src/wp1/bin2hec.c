@@ -1,3 +1,7 @@
+// (C) Anton Golubenko, Aditya Khadkikar, Akuien Deng - Group: 27 
+// Work package 1 
+// Exercise 4 
+// Submission code: VV96BO8 (provided by your TA-s) 
 
 #include <stdio.h> 
 #include<stdlib.h>  

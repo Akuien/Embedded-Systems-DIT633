@@ -1,7 +1,8 @@
 // (C) Anton Golubenko, Aditya Khadkikar, Akuien Deng - Group: 27 
 // Work package 1 
 // Exercise 1 
-// Submission code: XXXXXXX (provided by your TA-s) 
+// Submission code: VV96BO8 (provided by your TA-s) 
+
 #include <stdio.h> // has functions for standard input and output
 
 
