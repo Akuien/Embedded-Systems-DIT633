@@ -130,10 +130,9 @@ void search_by_firstname(char *name) {
         people = fopen("people.bin","rb"); // open the file
 
         while(fread(&person, sizeof(PERSON), 1, people) == 1 ) { // reading 1 person from the file handler(reading maximum one element)
-            if (strcasecmp(name, person.firstname) == 0 || strcasecmp(name, person.famname) == 0) { // compare the input with the data in the file
-                printf("\nSuccessfully fuound.\n First name: %s \n family name: %s \n personnal number: %s \n", person.firstname, person.famname, person.pers_number); // print all the information of the user 
+            if (strcasecmp(name, person.firstname) == 0) { // compare the input with the data in the file
+                printf("\nSuccessfully found.\n First name: %s \n family name: %s \n personnal number: %s \n", person.firstname, person.famname, person.pers_number); // print all the information of the user 
             }
-
         }
 
     }
@@ -158,8 +157,8 @@ void search_by_second(char *name) {
         people = fopen("people.bin","rb"); // open the file
 
         while(fread(&person, sizeof(PERSON), 1, people) == 1 ) { // reading 1 person from the file handler(reading maximum one element)
-            if (strcasecmp(name, person.famname) == 0 || strcasecmp(name, person.famname) == 0) { // compare the input with the data in the file
-                printf("\nSuccessfully fuound.\n First name: %s \n family name: %s \n personnal number: %s \n", person.firstname, person.famname, person.pers_number); // print all the information of the user 
+            if (strcasecmp(name, person.famname) == 0) { // compare the input with the data in the file
+                printf("\nSuccessfully found.\n First name: %s \n family name: %s \n personnal number: %s \n", person.firstname, person.famname, person.pers_number); // print all the information of the user 
             }
         }
 
@@ -279,7 +278,7 @@ int main(void){
                     char name[20];
 
                     //Ask the user to enter the first name of the person they want to search for in the file
-                    printf("Enter the first name of the person you are seraching for: \n");
+                    printf("Enter the first name of the person you are searching for: \n");
 
                     //Scan to get the name inserted by the user
                     scanf("%s", &name);
@@ -293,7 +292,7 @@ int main(void){
                     char name[20];
 
                     //ask the user to provide the last name of the person they want to search for in the file
-                    printf("Enter the second name of the person you are seraching for: \n");
+                    printf("Enter the second name of the person you are searching for: \n");
 
                     //scan the user input to get the last name
                     scanf("%s", &name);
