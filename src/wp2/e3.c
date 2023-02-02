@@ -1,8 +1,13 @@
+// (C) Anton Golubenko, Aditya Khadkikar, Akuien Deng - Group: 27 
+// Work package 2 
+// Exercise 1 
+// Submission code: XXXXXX (provided by your TA-s) 
+
 #include <stdlib.h> 
-#include <stdio.h>
-#include <strings.h> 
+#include <stdio.h> 
+#include <strings.h>
  
-// -----typedefs -------
+// -----typedefs ------- 
 //-----struct type of a person with firstname, familyname and socialsecuritynumber 
 typedef struct { 
         char firstname[20]; 
