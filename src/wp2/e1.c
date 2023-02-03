@@ -1,7 +1,7 @@
 // (C) Anton Golubenko, Aditya Khadkikar, Akuien Deng - Group: 27 
 // Work package 2 
 // Exercise 1 
-// Submission code: XXXXXX (provided by your TA-s) 
+// Submission code: 6PQVO9T (provided by your TA-s) 
 
 /* Importing libraries for input/output operations, string/number comparisons and checking purposes + more */
 #include <stdio.h>
