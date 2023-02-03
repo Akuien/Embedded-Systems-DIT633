@@ -1,6 +1,6 @@
 // (C) Anton Golubenko, Aditya Khadkikar, Akuien Deng - Group: 27 
 // Work package 2 
-// Exercise 1 
+// Exercise 2
 // Submission code: 6PQVO9T (provided by your TA-s) 
 
 #include <stdio.h> // used for standard output and input
