@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 {
     int nr = 0, user_input; // integer nr is declared and initialized, it stands for the counter of number of records; user_input is used for storing input from a user in integer form.
 
-    REGTYPE *act_post , *head=NULL; // we create act_post and head values which both will store the first node of the linked list
+    REGTYPE *act_post , *head; // we create act_post and head values which both will store the first node of the linked list
 
     srand(time(0)); // Random seed
     
@@ -70,27 +70,25 @@ int main(int argc, char *argv[])
  
 REGTYPE* random_list(void){ 
     int nr, i=0; // integers nr and i are declared, where i is the counter of a for loop.
-    REGTYPE *top, *old, *item, *n1 = NULL, *n2 = NULL, *n3 = NULL, *n4 = NULL; // declare REGTYPE variables and set them to NULL.
+    REGTYPE *top, *old, *item; // declare REGTYPE variables and set them to NULL.
     // lines 75 through 79 are memory allocation for new nodes in the linkedlist, top is the first element in the linkedlist and n4 is the last element.
-    top = malloc(sizeof(struct q));
-    n1 = malloc(sizeof(struct q));
-    n2 = malloc(sizeof(struct q));
-    n3 = malloc(sizeof(struct q)); 
-    n4 = malloc(sizeof(struct q)); 
+  
+
     srand(time(0)); // random seed generator to generate random numbers.
 
-    
-    top->number = rand() % 100;  // the number attribute of top gets a random number.
-    n1->number = rand() % 100;  // the number attribute of n1 gets a random number.
-    n2->number = rand() % 100;  // the number attribute of n2 gets a random number.
-    n3->number = rand() % 100;  // the number attribute of n3 gets a random number.
-    n4->number = rand() % 100; // the number attribute of n4 gets a random number.
+    for (i; i < MAX; i++) {
+        item = malloc(sizeof(struct q));
+        item->number = rand() % 100;
 
-    top->next = n1; // pointer of top is assigned to n1 variable.
-    n1->next = n2; // pointer of n1 is assigned to n2 variable.
-    n2->next = n3; // pointer of n2 is assigned to n3 variable.
-    n3->next = n4; // pointer of n3 is assigned to n4 variable.
-    n4->next = NULL; // pointer of n4 is assigned to NULL to indicate the end of linked list.
+        if(i == 0) {
+            top = old = item;
+        } else {
+            old->next = item;
+            old = item;
+        }
+    }
+
+    old->next = NULL;
 
     return (top); // return the first element of the linked list.
 } 
