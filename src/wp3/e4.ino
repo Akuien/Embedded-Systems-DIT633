@@ -1,7 +1,11 @@
+// (C) Anton Golubenko, Aditya Khadkikar, Akuien Deng - Group: 27 
+// Work package 3 
+// Exercise 4 
+// Submission code: XXXXXX (provided by your TA-s) 
+
 #include <Keypad.h> // adding the Keypad value in order to perform keypad functions
 
 // C++ code
-//
 
 const byte row = 4; // define row size of 4
 const byte column = 4; // define column size of 4

@@ -1,5 +1,9 @@
+// (C) Anton Golubenko, Aditya Khadkikar, Akuien Deng - Group: 27 
+// Work package 3 
+// Exercise 3
+// Submission code: XXXXXX (provided by your TA-s) 
+
 // C++ code
-//
 
 const byte row = 4; // define row size of 4
 const byte column = 4; // define column size of 4
