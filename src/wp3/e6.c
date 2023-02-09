@@ -1,7 +1,7 @@
 // (C) Anton Golubenko, Aditya Khadkikar, Akuien Deng - Group: 27 
 // Work package 3 
 // Exercise 6 
-// Submission code: XXXXXX (provided by your TA-s) 
+// Submission code: 2D8UPPE (provided by your TA-s) 
 
 #include <stdio.h>
 #include <string.h>
