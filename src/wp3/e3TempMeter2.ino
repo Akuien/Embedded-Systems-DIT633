@@ -15,27 +15,28 @@ void setup()
 
 void loop()
 {
-  // Get the analog value info from the pin A0(analog in pin)
-  double temp = analogRead(A0);
+  // Get the analog reading info for the voltage from the pin A0(analog in pin)
+  double analog_reading = analogRead(A0);
   
-  //Convert the analog value into voltage
-  temp = (temp / TEMP_SENSOR_MAX)*5;
+  //Convert the analog value into voltage(0-5V)
+  double voltage = (analog_reading / TEMP_SENSOR_MAX)*5.0;
   
   //Calculate the temperature
   // 5 for the volts the sensor is connected 
   //0.5 for the offset value
-  temp = (temp - 0.5) * 100;
+  double temp = (voltage - 0.5) * 100;
 
 
 
   // Print the voltage to the serial output
   Serial.print("Voltage: ");
-  Serial.println(analogRead(A0) * (5000 / TEMP_SENSOR_MAX));
+  Serial.println(analog_reading * (5000 / TEMP_SENSOR_MAX));
 
   // Print the temperature to the serial output
-  Serial.print("Current Temperature: ");
+  Serial.print("Current Temperature in degrees C: ");
   Serial.println(temp);
 
   // Add a delay of 500ms
   delay(500);
+  
 }
