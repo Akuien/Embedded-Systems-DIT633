@@ -22,11 +22,11 @@ void sort (int number, int tab[])
 {
     int temp;
     for (int i = 0; i < number; i++) {
-        for (int i = 0; i < (number-1); i++) {
-            temp = tab[i];
-            if (tab[i+1] < tab[i]) {
-                tab[i] = tab[i+1];
-                tab[i+1] = temp;
+        for (int j = 0; j < (number-1); j++) {
+            temp = tab[j];
+            if (tab[j+1] < tab[j]) {
+                tab[j] = tab[j+1];
+                tab[j+1] = temp;
             }        
         }
     }
