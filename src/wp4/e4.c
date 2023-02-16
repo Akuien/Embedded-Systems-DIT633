@@ -1,7 +1,7 @@
 // (C) Anton Golubenko, Aditya Khadkikar, Akuien Deng - Group: 27 
 // Work package 4
 // Exercise 4 
-// Submission code: XXXXXX (provided by your TA-s) 
+// Submission code: AW1Y2XM (provided by your TA-s) 
 
 #include <stdio.h>
 /* A pre-defined MAX variable that is the length of the array */
@@ -55,17 +55,17 @@ int main(int argc, char const *argv[])
         printf("%d ", test[i]);
     }
 
+    /* First test: a call to the function for searching for a desired number in the sorted array. 
+    A dummy value passed here is 5, that is searched for. */
+    printf("\n\nSearching for '5' in test[] : index --> %d\n", search_number(5, test, MAX));
+
     /* A call to sort the array, and next, prints the same array, but sorted using bubble sort. */
     sort(MAX, test);
-    printf("\n\nSorted:");
+    printf("\nSorted Array:");
     printf("\n--------\n");
     for (int i = 0; i < MAX; i++) {
         printf("%d ", test[i]);
     }
-
-    /* Second test: a call to the function for searching for a desired number in the sorted array. 
-    A dummy value passed here is 5, that is searched for. */
-    printf("\n\nSearching for '5' in test[] : index --> %d\n", search_number(5, test, MAX));
     printf("\n");
 
     /* Finish the main() by returning 0 */
