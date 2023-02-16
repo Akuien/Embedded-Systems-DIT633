@@ -1,4 +1,9 @@
 // C++ code
+// (C) Anton Golubenko, Aditya Khadkikar, Akuien Deng - Group: 27 
+// Work package 4
+// Exercise 1 
+// Submission code: AW1Y2XM (provided by your TA-s) 
+
 //include the servo(motor) library
 #include <Servo.h>
 
@@ -53,7 +58,7 @@ void rotate_servo(){
 ISR(TIMER0_COMPA_vect)
 {                          
     current_seconds++;    // Increment the time
-    if (current_seconds > 59000) // check if time is larger than 60 seconds
+  if (current_seconds > 59000) // check if time is larger than 60 seconds
         current_seconds = 0; 
   if (current_seconds % 1000 == 0){
     Serial.println(current_seconds/1000); // divide the current_seconds with a 1000 to print in seconds instead of microseconds
