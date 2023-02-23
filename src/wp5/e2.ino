@@ -1,7 +1,7 @@
 // (C) Anton Golubenko, Aditya Khadkikar, Akuien Deng - Group: 27 
 // Work package 5
 // Exercise 2
-// Submission code: XXXXXX (provided by your TA-s) 
+// Submission code: MB58AHJ (provided by your TA-s) 
 // C++ code
 
 /*Setting the pin for measuring the temperature to be 2 amongst the analog pins of Arduino.*/
