@@ -28,9 +28,9 @@ byte column_pins[column] = {7, 6, 5, 4}; // define pins for columns of keypad
 
 char keys[row][column] = { // create a matrix of keypad characters, where rows and columns are size of 4
   {'1', '3', '2', 'A'}, // first row
-  {'4', '6', '5', 'B'}, // second row
+  {'7', '9', '8', 'C'}, // second row
   {'*', '#', '0', 'D'}, // third row
-  {'7', '9', '8', 'C'} // fourth row
+  {'4', '6', '5', 'B'} // fourth row
 };
 
 String addresses[COMBINATIONS] = {
@@ -61,7 +61,7 @@ void fillColors(int amount) { // funtion that takes in int amount as a parameter
   for(int i = amount; i < 24; i++) { // looping until a certain amount
     strip.setPixelColor(i, 10, codes[rand() % 3], codes[rand() % 3]); // set a turqoise color on every LED light in NeoPixel until a certain reaching the amount specified
     strip.show(); // display the colors
-    delay(200);    
+    delay(40);    
   }
   
   for(int i = amount ; i < 24; i++) { // looping backwards in the ring, in order to fill the rest of LEDs
@@ -79,8 +79,10 @@ String entered = "";
 void loop()
 {
   keypad.tick();
+  int k = 0;
   if(keypad.available()) {
     keypadEvent e = keypad.read();
+    delay(150);
     char buffer[8];
     if(!e.bit.EVENT == KEY_JUST_RELEASED) {
         //Serial.print((char)e.bit.KEY);
@@ -94,26 +96,55 @@ void loop()
             fillColors(23);
             Serial.println();
             Serial.println();
-            int num_correct;
+            bool found = false;
+            
             for (int i=0; i<COMBINATIONS; i++) {              
+              
               if (entered == addresses[i]) {
-                for (int j=0; j<entered.length(); j++) {
-                  int k=0;
-                  while (k < entered.length()) {
-                    strip.setPixelColor(k*3, 255, 0, 0);
-                    strip.setPixelColor((k*3)+1, 255, 0, 0);
-                    strip.show();
-                    delay(500);
-                    fillColors(((k*3)+1) + 1);
-                    k++;
-                  }
+                while (k < entered.length()) {
+                  strip.setBrightness(10);
+                  strip.setPixelColor(k*3, 255, 0, 0);
+                  strip.setPixelColor((k*3)+1, 255, 0, 0);
+                  strip.show();
+                  delay(500);
+                  fillColors(((k*3)+1) + 1);
+                  k++;
                 }
-                num_correct++;
-              }
+                for (int i=0; i<25; i++) {
+                  strip.show();
+                  strip.setPixelColor(i, strip.Color(0, 200, 0));
+                }
+                delay(2000);
+                found = true;   
+              }                
             }
+            if (found == false) {
+              while (k < entered.length()-1) {
+                strip.setBrightness(10);
+                strip.setPixelColor(k*3, 255, 0, 0);
+                strip.setPixelColor((k*3)+1, 255, 0, 0);
+                strip.show();
+                delay(500);
+                fillColors(((k*3)+1) + 1);
+                k++;
+              }
+              for (int i=0; i<25; i++) {
+                strip.show();
+                strip.setPixelColor(i, strip.Color(200, 0, 0));
+              }
+              delay(2000); 
+            }  
+
             entered = "";
-          }
-        }      
+            delay(1000);
+            //Clearing the LED pixels to empty
+            for (int i=0; i<25; i++) {
+              strip.show();
+              strip.setPixelColor(i, strip.Color(0, 0, 0));
+            }
+                        
+          }      
+      }
     }
   }
 }
