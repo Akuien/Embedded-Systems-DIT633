@@ -94,7 +94,7 @@ void loop()
   if(keypad.available()) {
     /* Storing a received event (in the form of a key-press) in a keypadEvent variable e */
     keypadEvent e = keypad.read();
-    delay(100);
+    delay(150);
     char buffer[8];
     /* The following nested-ifs were done to simulate the key-pressing behaviour, 
     as it eliminates conflicts of running operations during a key-press, or when running it when a key is not pressed. */
