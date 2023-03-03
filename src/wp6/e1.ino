@@ -30,8 +30,9 @@ void setup()
   pinMode(POWER_1, OUTPUT);
   pinMode(POWER_2, OUTPUT);
   
-  //attach the interrupt
-  //TO DO 1
+  /* 
+  ATTACH INTERRUPT HERE. 
+  */
   attachInterrupt(digitalPinToInterrupt(ENCODER_A), ISR_encoder, RISING);
 
  
@@ -43,10 +44,9 @@ void setup()
 
 void loop()
 {
-  // Setting speed -------- E1.1 --------
+  /* Setting speed -------- E1.1 -------- */
 
   manage_counter(); //at start of execution, make sure everything is reset in the motor
-
   
   Serial.print("\n");
   Serial.print("\nDegrees: ");
@@ -69,7 +69,6 @@ void loop()
   
   // Calculate initial error
   e = degtarget - degree;
-  
     
   // Loop until error is zero
   while(e){
@@ -110,8 +109,9 @@ void loop()
 
 
 int getAction(int error){
-  //TO DO 2
-  //Calculate the u_out (output of the controller)
+  /* 
+  Calculate u_out as function of the error and the kp (tuning parameter). 
+  */
   u_out = kp*e;
   
   if (u_out > 254){ //u_out cannot be more than 255...
@@ -133,37 +133,40 @@ void manage_counter() {
   }
 }
 
-
+//converting the counts in tick to degrees
 void count_degrees(){
-  //converting the counts in tick to degrees
-  //1 degree
+  //calculated value of 1 degree for conversion purposes
   int oneDegree = 2299/359;
   
   //convert our current counter to degrees
   degree = position_counter / oneDegree;
   
-  //if degrees goes to max, reset degrees
+  //if degrees goes to max, reset degrees back to 0, as it has completed a full cycle.
   if(degree > 359 || degree < -359) {
     degree = 0;
   }
+  //getting the absolute value of degrees when it may be < 0
   if(degree < 0) {
    	degree = -degree;
   }   
 }
 
-
+/* A method that handles the task of receiving input from the user, and storing it as an int. */
 int getInput(){  
   int ready = 0;
   char buf[3];
   int input = -1;
   
+  /* PROMPT */
   Serial.print("Please enter the desired position: \n");
   
+  /* Takes the string input from the Serial console of tinkercad */
   while(!ready){
     ready = Serial.readBytes(buf,3);
+    /* Converts string to int for getting what position to move the motor to. */
     input = atoi(&buf[0]);
   }
- 
+  
   return input;
 } 
 
@@ -178,15 +181,18 @@ void setMovement(int speed) {
 
 //TO DO 3
 void ISR_encoder(){
-  //Reading the signal from both encoders a  and b
+  /*
+  READ THE ENCODER SIGNAL HERE.
+  Read the encoder signals and increase or decrease pos accordingly.
+  */
   ENC_A_OUTPUT = digitalRead(ENCODER_A);
   ENC_B_OUTPUT = digitalRead(ENCODER_B);
 
   // if signal at encoder a is on increase the position counter
   if(ENC_A_OUTPUT > ENC_B_OUTPUT) {
     position_counter++;
-    //if signal at encoder b is on, decrease the position counter
   } else {
+    //if signal at encoder b is on, decrease the position counter
     position_counter--;
   }
 }
